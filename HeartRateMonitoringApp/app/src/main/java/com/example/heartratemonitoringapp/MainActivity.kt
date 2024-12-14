@@ -76,7 +76,7 @@ fun MainScreen() {
                         onClick = {
                             isToastVisible.value = true
                         },
-                        painter = painterResource(id = android.R.drawable.ic_dialog_info)
+                        painter = painterResource(id = R.drawable.person_fill)
                     )
 
                     HomeScreenButton(
@@ -84,7 +84,7 @@ fun MainScreen() {
                         onClick = {
                             isToastVisible.value = true
                         },
-                        painter = painterResource(id = android.R.drawable.ic_dialog_info)
+                        painter = painterResource(id = R.drawable.person_add)
                     )
                 }
 
@@ -96,7 +96,7 @@ fun MainScreen() {
                         onClick = {
                             isToastVisible.value = true
                         },
-                        painter = painterResource(id = android.R.drawable.ic_dialog_info)
+                        painter = painterResource(id = R.drawable.person_question)
                     )
 
                     HomeScreenButton(
@@ -104,7 +104,7 @@ fun MainScreen() {
                         onClick = {
                             isToastVisible.value = true
                         },
-                        painter = painterResource(id = android.R.drawable.ic_dialog_info)
+                        painter = painterResource(id = R.drawable.book_fill)
                     )
                 }
             }
