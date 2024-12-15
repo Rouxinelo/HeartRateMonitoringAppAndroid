@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.yourapp.components.buttons.HomeScreenButton
 import com.yourapp.components.alerts.CustomToast
+import components.popups.LoginView
+import components.alerts.CustomAlert
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen() {
     val isToastVisible = remember { mutableStateOf(false) }
+    val isLoginViewVisible = remember { mutableStateOf(false) }
+    val isGuestAlertVisible = remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -74,7 +78,7 @@ fun MainScreen() {
                     HomeScreenButton(
                         labelText = "Login",
                         onClick = {
-                            isToastVisible.value = true
+                            isLoginViewVisible.value = true
                         },
                         painter = painterResource(id = R.drawable.person_fill)
                     )
@@ -94,7 +98,7 @@ fun MainScreen() {
                     HomeScreenButton(
                         labelText = "Guest",
                         onClick = {
-                            isToastVisible.value = true
+                            isGuestAlertVisible.value = true
                         },
                         painter = painterResource(id = R.drawable.person_question)
                     )
@@ -115,6 +119,34 @@ fun MainScreen() {
                 isShowing = isToastVisible,
                 iconName = android.R.drawable.ic_dialog_info,
                 message = "Coming Soon!"
+            )
+        }
+
+        if (isLoginViewVisible.value) {
+            LoginView(
+                isShowing = isLoginViewVisible,
+                isRecoverPasswordHidden = false,
+                onLogin = { username, password ->
+                    println("Username: $username")
+                    println("Password: $password")
+                },
+                onRecoverPassword = {
+                    isToastVisible.value = true
+                }
+            )
+        }
+
+        if (isGuestAlertVisible.value) {
+            CustomAlert(
+                isShowing = isGuestAlertVisible,
+                iconName = android.R.drawable.ic_dialog_info,
+                title = "Convidado?",
+                leftButtonText = "Cancelar",
+                rightButtonText = "Continuar",
+                description = "Varias funcionalidades indisponiveis",
+                leftButtonAction = {},
+                rightButtonAction = {  isToastVisible.value = true },
+                isSingleButton = false
             )
         }
     }
