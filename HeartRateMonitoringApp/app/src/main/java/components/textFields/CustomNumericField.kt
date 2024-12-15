@@ -102,17 +102,3 @@ fun CustomNumericField(
         )
     }
 }
-
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewRegisterScreenField() {
-    var searchText by remember { mutableStateOf("") }
-    CustomNumericField(
-        searchText = searchText,
-        onSearchTextChange = { newText ->
-            searchText = newText },
-        placeholder = "Your number",
-        maxDigits = 2
-    )
-}
