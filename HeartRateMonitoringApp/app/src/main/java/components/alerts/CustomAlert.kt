@@ -53,15 +53,15 @@ fun CustomAlert(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.Black.copy(alpha = 0.5f))
-                .padding(20.dp),
+                .padding(20.dp)
+                .offset(y = yOffset.value.dp),
             contentAlignment = Alignment.Center
 
         ) {
             Column(
                 modifier = Modifier
                     .background(Color.White, shape = RoundedCornerShape(20.dp))
-                    .padding(30.dp)
-                    .offset(y = yOffset.value.dp),
+                    .padding(30.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                 Icon(

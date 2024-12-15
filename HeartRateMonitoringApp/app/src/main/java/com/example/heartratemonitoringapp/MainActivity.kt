@@ -43,6 +43,8 @@ fun MainScreen() {
     val isToastVisible = remember { mutableStateOf(false) }
     val isLoginViewVisible = remember { mutableStateOf(false) }
     val isGuestAlertVisible = remember { mutableStateOf(false) }
+    val isWrongPasswordAlertVisible = remember { mutableStateOf(false) }
+    val isNoInternetAlertVisible = remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -127,8 +129,7 @@ fun MainScreen() {
                 isShowing = isLoginViewVisible,
                 isRecoverPasswordHidden = false,
                 onLogin = { username, password ->
-                    println("Username: $username")
-                    println("Password: $password")
+                    isWrongPasswordAlertVisible.value = true
                 },
                 onRecoverPassword = {
                     isToastVisible.value = true
@@ -145,8 +146,36 @@ fun MainScreen() {
                 rightButtonText = "Continuar",
                 description = "Varias funcionalidades indisponiveis",
                 leftButtonAction = {},
-                rightButtonAction = {  isToastVisible.value = true },
+                rightButtonAction = { isToastVisible.value = true },
                 isSingleButton = false
+            )
+        }
+
+        if (isNoInternetAlertVisible.value) {
+            CustomAlert(
+                isShowing = isNoInternetAlertVisible,
+                iconName = android.R.drawable.ic_dialog_info,
+                title = "Erro!",
+                leftButtonText = "Ok",
+                rightButtonText = "",
+                description = "Não foi possível conectar-se ao servidor",
+                leftButtonAction = {},
+                rightButtonAction = {},
+                isSingleButton = true
+            )
+        }
+
+        if (isWrongPasswordAlertVisible.value) {
+            CustomAlert(
+                isShowing = isWrongPasswordAlertVisible,
+                iconName = android.R.drawable.ic_dialog_info,
+                title = "Erro!",
+                leftButtonText = "Ok",
+                rightButtonText = "",
+                description = "Nome de utilizador ou palavra passe incorreta",
+                leftButtonAction = {},
+                rightButtonAction = {},
+                isSingleButton = true
             )
         }
     }

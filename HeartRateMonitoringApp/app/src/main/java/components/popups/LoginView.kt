@@ -62,7 +62,6 @@ fun LoginView(
                     .clip(RoundedCornerShape(20.dp))
                     .background(Color.White)
                     .clickable(
-                        enabled = false,
                         indication = null,
                         interactionSource = remember { MutableInteractionSource() },
                         onClick = { },
