@@ -1,39 +1,33 @@
 package components.textFields
 
+import android.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomTextField(
+fun CustomNumericField(
     searchText: String,
     onSearchTextChange: (String) -> Unit,
-    isPrivateField: Boolean,
-    placeholder: String
+    placeholder: String,
+    maxDigits: Int
 ) {
     var isTextFieldFocused by remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
@@ -46,12 +40,16 @@ fun CustomTextField(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White, RoundedCornerShape(8.dp)) // White background for the Row
+                .background(Color.White, RoundedCornerShape(8.dp))
                 .padding(8.dp)
         ) {
             TextField(
                 value = searchText,
-                onValueChange = onSearchTextChange,
+                onValueChange = { newText ->
+                    if (newText.all { it.isDigit() } && newText.length <= maxDigits) {
+                        onSearchTextChange(newText)
+                    }
+                },
                 placeholder = {
                     Text(
                         text = placeholder,
@@ -61,20 +59,19 @@ fun CustomTextField(
                 textStyle = TextStyle(fontSize = 16.sp, color = Color.Black),
                 modifier = Modifier
                     .weight(1f)
-                    .background(Color.Transparent) // Remove any background
+                    .background(Color.Transparent)
                     .onFocusChanged { isTextFieldFocused = it.isFocused },
-                visualTransformation = if (isPrivateField) PasswordVisualTransformation() else VisualTransformation.None,
-                keyboardOptions = KeyboardOptions(keyboardType = if (isPrivateField) KeyboardType.Password else KeyboardType.Text),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 keyboardActions = KeyboardActions(onDone = {
                     focusManager.clearFocus()
                 }),
                 singleLine = true,
                 colors = TextFieldDefaults.colors(
-                    focusedContainerColor = Color.Transparent, // Removes the grayish background
-                    unfocusedContainerColor = Color.Transparent, // Removes the grayish background when not focused
-                    focusedIndicatorColor = Color.Transparent, // Removes underline when focused
-                    unfocusedIndicatorColor = Color.Transparent, // Removes underline when unfocused
-                    cursorColor = Color.Red // Customize cursor color
+                    focusedContainerColor = Color.Transparent,
+                    unfocusedContainerColor = Color.Transparent,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                    cursorColor = Color.Red
                 )
             )
 
@@ -84,7 +81,7 @@ fun CustomTextField(
                     focusManager.clearFocus()
                 }) {
                     Icon(
-                        painter = painterResource(id = android.R.drawable.ic_menu_close_clear_cancel),
+                        painter = painterResource(id = R.drawable.ic_menu_close_clear_cancel),
                         contentDescription = null,
                         tint = Color.Red
                     )
@@ -92,7 +89,6 @@ fun CustomTextField(
             }
         }
 
-        // Border to indicate focus
         Box(
             modifier = Modifier
                 .matchParentSize()

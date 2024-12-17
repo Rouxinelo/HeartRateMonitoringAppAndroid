@@ -21,12 +21,10 @@ fun RegisterScreenField(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
             text = title,
-            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+            style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
         )
@@ -40,7 +38,7 @@ fun RegisterScreenField(
 
         Text(
             text = description,
-            style = MaterialTheme.typography.bodySmall,
+            style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
