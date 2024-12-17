@@ -37,8 +37,7 @@ fun CustomRadioButton(
                 indication = null,
                 interactionSource = remember { MutableInteractionSource() },
                 onClick = { onSelectionChange(!isSelected) },
-            )
-            .padding(8.dp),
+            ),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(4.dp)
 
@@ -51,7 +50,7 @@ fun CustomRadioButton(
         Box(
             modifier = Modifier
                 .size(35.dp)
-                .padding(4.dp) // Optional padding for inner spacing
+                .padding(4.dp)
                 .border(2.dp, Color.Red, RoundedCornerShape(4.dp))
                 .background(if (isSelected) Color.Red else Color.White, RoundedCornerShape(4.dp))
         ) {
