@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -53,13 +54,13 @@ fun MainMenuSection(
                 painter = if (isUnavailable) painterResource(id = android.R.drawable.ic_dialog_info) else sectionIcon,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(40.dp)
+                    .size(45.dp)
                     .padding(bottom = 8.dp),
                 tint = Color.White
             )
             Text(
                 text = sectionTitle,
-                fontSize = 20.sp,
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
                 textAlign = TextAlign.Center,
@@ -67,7 +68,7 @@ fun MainMenuSection(
             )
             Text(
                 text = if (isUnavailable) "Unavailable in guest mode" else sectionDescription,
-                fontSize = 14.sp,
+                style = MaterialTheme.typography.bodyLarge,
                 color = Color.White,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 8.dp)
