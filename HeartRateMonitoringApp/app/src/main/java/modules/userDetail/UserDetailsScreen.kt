@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.sp
 import components.buttons.CustomBackButton
 import dataModels.UserDetailType
 import components.others.CircularAvatar
+import components.others.CustomNavigationBar
 import components.sections.UserDetailsSection
 
 data class UserDetail(
@@ -30,25 +31,9 @@ fun UserDetailsScreen(
 
     Scaffold(
         topBar = {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                // CustomBackButton on the leading side
-                CustomBackButton(
-                    onClick = {
-                        // Handle back navigation here
-                    }
-                )
-
-                Text(
-                    text = "Details",
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Center)
-                )
-            }
-
+            CustomNavigationBar(
+                title = "Details"
+            ) { println("back") }
         }
     ) { paddingValues ->
         Column(
@@ -57,12 +42,12 @@ fun UserDetailsScreen(
                 .padding(horizontal = 16.dp)
                 .padding(top = paddingValues.calculateTopPadding()), // Make sure to account for scaffold's top padding
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(50.dp)
         ) {
-            // Header Section
+
+            Spacer(Modifier.height(25.dp))
+
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(25.dp)
             ) {
                 CircularAvatar(
                     backgroundColor = Color.Red,
@@ -71,7 +56,8 @@ fun UserDetailsScreen(
                 )
             }
 
-            // Details List Section (Scrollable Column)
+            Spacer(Modifier.height(50.dp))
+
             Column(
                 modifier = Modifier
                     .verticalScroll(scrollState)
@@ -87,7 +73,7 @@ fun UserDetailsScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.weight(1f)) // Push content upwards
+            Spacer(modifier = Modifier.weight(1f))
         }
     }
 }
