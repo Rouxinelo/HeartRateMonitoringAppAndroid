@@ -234,34 +234,3 @@ fun RegisterUserScreen(
         }
     }
 }
-
-
-@Preview
-@Composable
-fun RegisterScreenPreview() {
-    val userName = remember { mutableStateOf("") }
-    val firstName = remember { mutableStateOf("") }
-    val lastName = remember { mutableStateOf("") }
-    val email = remember { mutableStateOf("") }
-    val password = remember { mutableStateOf("") }
-    val birthDay = remember { mutableStateOf("") }
-    val birthMonth = remember { mutableStateOf("") }
-    val birthYear = remember { mutableStateOf("") }
-    val isMaleSelected = remember { mutableStateOf(true) }
-    val isFemaleSelected = remember { mutableStateOf(false) }
-
-    RegisterUserScreen(
-        userName = userName,
-        firstName = firstName,
-        lastName = lastName,
-        email = email,
-        password = password,
-        birthDay = birthDay,
-        birthMonth = birthMonth,
-        birthYear = birthYear,
-        isMaleSelected = isMaleSelected,
-        isFemaleSelected = isFemaleSelected,
-        onBack = {},
-        onRegister = {}
-    )
-}
