@@ -3,8 +3,6 @@ package components.sections
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,15 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
 fun UserDetailsSection(
-    image: ImageVector,
+    image: Painter,
     title: String,
     description: String
 ) {
@@ -44,10 +41,10 @@ fun UserDetailsSection(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = image,
+                painter = image,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(50.dp),
+                    .size(40.dp),
                 tint = Color.Red
             )
 
@@ -62,7 +59,7 @@ fun UserDetailsSection(
                     Text(
                         text = title,
                         style = MaterialTheme.typography.titleMedium.copy(
-                            fontSize = 20.sp,
+                            fontSize = 16.sp,
                             fontWeight = FontWeight.Bold
                         )
                     )
@@ -71,21 +68,11 @@ fun UserDetailsSection(
                     Text(
                         text = description,
                         style = MaterialTheme.typography.titleLarge.copy(
-                            fontSize = 30.sp
+                            fontSize = 25.sp
                         )
                     )
                 }
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun UserDetailsSectionPreview() {
-    UserDetailsSection(
-        image = Icons.Default.Person,
-        title = "Name",
-        description = "T. Testname"
-    )
 }
