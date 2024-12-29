@@ -3,7 +3,7 @@ package dataModels
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Session(
+data class SessionRepresentable (
     val id: String,
     val name: String,
     val date: String,
