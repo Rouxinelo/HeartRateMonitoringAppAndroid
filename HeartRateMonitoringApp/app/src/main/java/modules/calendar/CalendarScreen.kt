@@ -125,37 +125,3 @@ fun CalendarScreen(
         }
     }
 }
-
-@Preview
-@Composable
-fun Preview() {
-    CalendarScreen(
-        searchText = remember { mutableStateOf("") },
-        didSignIn = remember { mutableStateOf(false) },
-        showEmptyAlert = remember { mutableStateOf(false) },
-        isGuest = false,
-        username = "zeca",
-        sessions = listOf(
-            SessionRepresentable(
-                id = "1",
-                name = "Session 1",
-                date = "2024-01-01",
-                hour = "10:00 AM",
-                teacher = "Mr. Smith",
-                totalSpots = 20,
-                filledSpots = 10
-            ),
-            SessionRepresentable(
-                id = "2",
-                name = "Session 2",
-                date = "2024-01-02",
-                hour = "2:00 PM",
-                teacher = "Ms. Johnson",
-                totalSpots = 15,
-                filledSpots = 5
-            )
-        ),
-        sessionToSignIn = remember { mutableStateOf(null) },
-        onBack = {}
-    ) { }
-}
