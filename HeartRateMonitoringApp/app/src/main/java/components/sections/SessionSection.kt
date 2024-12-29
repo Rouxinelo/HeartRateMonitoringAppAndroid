@@ -23,7 +23,6 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -120,7 +119,7 @@ fun SessionSection(
                 ) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.person_fill),
+                            painter = painterResource(id = R.drawable.clock_fill),
                             contentDescription = "Hour",
                             tint = Color.Red,
                             modifier = Modifier.size(25.dp)
@@ -165,16 +164,4 @@ fun SessionSection(
             )
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewSessionsection() {
-    SessionSection(
-        title = "Example Title",
-        date = "11/12",
-        hour = "18h",
-        teacher = "Rouxinol",
-        occupation = "12/12"
-    ) { }
 }

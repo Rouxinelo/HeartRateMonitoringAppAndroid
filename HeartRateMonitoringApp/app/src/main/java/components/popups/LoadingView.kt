@@ -9,23 +9,21 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun LoadingView(
-    isShowing: Boolean,
+    isShowing: MutableState<Boolean>,
     title: String,
     description: String,
 ) {
-    val yOffset by animateDpAsState(targetValue = if (isShowing) 0.dp else 1000.dp)
+    val yOffset by animateDpAsState(targetValue = if (isShowing.value) 0.dp else 1000.dp)
 
-    if (isShowing) {
+    if (isShowing.value) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -65,16 +63,4 @@ fun LoadingView(
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoadingViewPreview() {
-    var isShowing by remember { mutableStateOf(true) }
-
-    LoadingView(
-        isShowing = isShowing,
-        title = "Loading",
-        description = "Please wait while we fetch your data..."
-    )
 }
