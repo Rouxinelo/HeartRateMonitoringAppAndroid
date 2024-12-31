@@ -64,15 +64,3 @@ fun CustomRadioButton(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewSelectedCustomRadioButton() {
-    var selectedOption by remember { mutableStateOf(true) }
-
-    CustomRadioButton(
-        isSelected = selectedOption,
-        onSelectionChange = { newSelection -> selectedOption = newSelection },
-        text = "M"
-    )
-}

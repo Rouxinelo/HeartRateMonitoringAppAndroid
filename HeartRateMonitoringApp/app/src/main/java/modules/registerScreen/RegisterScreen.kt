@@ -227,7 +227,7 @@ fun RegisterUserScreen(
                 ) {
                     Text(
                         text = "Register",
-                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold)
+                        style = MaterialTheme.typography.bodyLarge
                     )
                 }
             }

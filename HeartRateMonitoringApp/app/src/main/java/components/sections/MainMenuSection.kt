@@ -72,16 +72,3 @@ fun MainMenuSection(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun MainMenuSectionUnavailablePreview() {
-    MainMenuSection(
-        sectionColor = Color.Blue,
-        sectionIcon = painterResource(id = android.R.drawable.ic_dialog_info),
-        sectionTitle = "Unavailable Section",
-        sectionDescription = "This is a sample description.",
-        isUnavailable = false,
-        sectionAction = {}
-    )
-}
