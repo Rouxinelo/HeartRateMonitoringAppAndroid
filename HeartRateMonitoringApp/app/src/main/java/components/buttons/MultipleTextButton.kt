@@ -78,12 +78,3 @@ fun MultipleTextButton(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun preview() {
-    MultipleTextButton(
-        title = "Example title",
-        description = "Example description"
-    ) { }
-}

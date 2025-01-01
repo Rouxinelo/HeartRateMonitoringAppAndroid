@@ -169,19 +169,3 @@ fun UserSessionsScreen(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun preview() {
-    UserSessionsScreen(
-        user = User(
-            username = "testUsername",
-            firstName = "testName",
-            lastName = "testName",
-            email = "testEmail",
-            gender = "M",
-            age = 11,
-            password = "testPassword"
-        )
-    )
-}

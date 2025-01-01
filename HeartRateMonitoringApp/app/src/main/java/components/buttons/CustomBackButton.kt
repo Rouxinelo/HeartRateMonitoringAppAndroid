@@ -29,11 +29,3 @@ fun CustomBackButton(onClick: () -> Unit) {
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun BackButtonExample() {
-    CustomBackButton {
-        println("Back button clicked!")
-    }
-}

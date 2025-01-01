@@ -229,22 +229,3 @@ fun getDrawableResourceId(imageName: String): Int {
         else -> R.drawable.exercise_cartoon_1
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun preview() {
-    SessionDetailScreen(
-        isGuest = true,
-        session = SessionRepresentable(
-            id = "1",
-            name = "Test Name",
-            date = "31/12",
-            hour = "00H",
-            teacher = "J.Saias",
-            totalSpots = 10,
-            filledSpots = 9,
-            description = "This is just an example description"
-        ),
-        username = null
-    ) { }
-}

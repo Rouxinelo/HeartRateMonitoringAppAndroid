@@ -37,7 +37,7 @@ fun UserDetailsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(horizontal = 16.dp)
-                .padding(top = paddingValues.calculateTopPadding()), // Make sure to account for scaffold's top padding
+                .padding(top = paddingValues.calculateTopPadding()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
@@ -86,31 +86,4 @@ fun getInitials(details: List<UserDetail>): String {
         }
     }
     return ""
-}
-
-@Preview(showBackground = true)
-@Composable
-fun UserDetailsScreenPreview() {
-    val sampleDetails = listOf(
-        UserDetail(
-            detailType = UserDetailType(UserDetailType.Type.NAME),
-            description = "John Doe"
-        ),
-        UserDetail(
-            detailType = UserDetailType(UserDetailType.Type.EMAIL),
-            description = "john.doe@example.com"
-        ),
-        UserDetail(
-            detailType = UserDetailType(UserDetailType.Type.GENDER),
-            description = "Male"
-        ),
-        UserDetail(
-            detailType = UserDetailType(UserDetailType.Type.AGE),
-            description = "29"
-        )
-    )
-
-    MaterialTheme {
-        UserDetailsScreen(details = sampleDetails)
-    }
 }

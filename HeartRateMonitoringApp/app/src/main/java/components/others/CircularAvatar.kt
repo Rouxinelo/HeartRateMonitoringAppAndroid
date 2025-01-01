@@ -35,9 +35,3 @@ fun CircularAvatar(
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewAvatar() {
-    CircularAvatar(backgroundColor = Color.Red, textColor = Color.White, text = "JR")
-}
