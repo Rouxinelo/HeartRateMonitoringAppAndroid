@@ -168,7 +168,7 @@ fun SessionSummaryScreen(
                             sectionIcon = R.drawable.chevron_down,
                             sectionTitle = "Min",
                             sectionDescription = "${sessionSummary.measurements.minOrNull() ?: 0} BPM",
-                            sectionColor = Color.Yellow
+                            sectionColor = Color(0xFFFFCC00)
                         )
                     }
                 }
