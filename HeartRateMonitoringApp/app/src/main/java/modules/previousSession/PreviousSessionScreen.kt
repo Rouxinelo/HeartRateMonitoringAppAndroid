@@ -112,10 +112,7 @@ fun PreviousSessionScreen(
                         fontSize = 16.sp
                     )
                 }
-
-
             }
-
 
             Column (verticalArrangement = Arrangement.spacedBy(10.dp))
             {
