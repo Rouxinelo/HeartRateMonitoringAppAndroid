@@ -179,7 +179,7 @@ fun SessionSummaryScreen(
         if (showingAlert.value) {
             CustomAlert(
                 isShowing = showingAlert,
-                iconName =android.R.drawable.ic_dialog_info,
+                iconName = android.R.drawable.ic_dialog_info,
                 title = "Exit?",
                 leftButtonText = "Cancel",
                 rightButtonText = "Leave",
