@@ -110,13 +110,3 @@ fun LineChart(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun preview() {
-    LineChart(
-        measurements = listOf(30, 120, 90, 120, 75),
-        maximumChartValues = 5,
-        maxMeasurement = 200
-    )
-}

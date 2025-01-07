@@ -197,22 +197,3 @@ fun InsertRecoveryCodeScreen(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun Preview() {
-    InsertRecoveryCodeScreen(
-        recoveryCode = RecoveryCode(
-            user = User(
-                username = "testUsername",
-                firstName = "testUsername",
-                lastName = "testUsername",
-                email = "testUsername",
-                gender = "M",
-                age = 11,
-                password = "testUsername"
-            ),
-            code = 11111
-        ),
-    ) { }
-}
